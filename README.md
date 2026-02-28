@@ -1,7 +1,9 @@
 #Project A
+
 Project A is a project witch is made kinda like test test test ontil it works so yeah! Testing thingy!
 
 #Requirements
+
 You need:
 1. Windows > 9
 2. Python == 3.10 or is more then 3.10
