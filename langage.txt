@@ -1,0 +1,66 @@
+#this is a show case of the SOFC - shit of function code
+
+
+to use SOFC the file has to end with ".SOFC"
+
+# ==== BASE ====
+-_ = Comment
+upget = +
+downget = -
+/get = divide
+\get = *
+saval = set #sets a value
+refi = read file
+safi = save file # this adds somthing into a file that does exist
+pofi = post file # this adds somthing into a file that does not exist
+del = delete a file
+E = exit
+if = if
+el = else
+and = can be used after a if command to do more
+do = show case: 
+saval X 2 
+if X = 3; do, E; el, do saval X = 2; E 
+#sets X = 2 checks if X = 3 if it does exit else set X = 2 then exit
+
+> = if a value is more its outputs 1
+< = if a value is less its outputs 1
+not = its the same as not in batch
+DNE = if somthing does not equel the oter then return 0
+() = like in math you do what is instide forst then the next
+return = returns from a if statement
+echo = prints text that is enterd
+exist = sees if a file exist
+end = ends anything if you put it in the end of a file it gets used as a exit function if its at the end of a if command then it end the if command thats it
+CERROR = if somthing has an error this starts
+after = can only get used in ret it gets used like this:
+saval X 20
+if not (X = 2; do, downget, 1. ret, X = 2) = 1 after, 5; do, E 
+# if X does not = 2 after 5 trys it exits
+
+che = check a file used like this:
+X = (refi "C:\file_with_number_5", "txt"); che, if X DNE 5; do, echo: "C:\file_with_number_5.txt does not have the number 5 in it", E
+# this sets X to be whats in C:\file_with_number_5.txt and if it does not equel 5 it prints "C:\file_with_number_5.txt does not have the number 5 in it" then exits
+
+ret = show case:
+saval X 3
+if not (X > 9; do, upget, 1. ret, X = 10) = 1; do, E 
+# it sets X = 3 then if X does not = 10 then it does + X with 1 and retrys until X = 10
+
+finel base show case:
+
+-_ this is a file making program
+saval A = (refi "C:\hello", "txt")
+saval B = "hello"
+saval C = 3
+
+if (A DNE C; do, saval A = C; CERROR as f: echo: "/B\! an error has happend: /f\"; return 0) = 1; do, pofi "it works"; "C:\works", "txt"; el, if exist "C:\works", "txt"; do safi "it works", "it does not work!"; "C:\works", "txt"; el, pofi "shit has hit the fan"; "C:\notwork", "txt"; end
+
+if exist "C:\works", "txt"; do, del "C:\works", "txt"; and: echo: "no i think i like this to much for you to have"; end. el, del "C:\notwork", "txt"; and: echo: "yeah no showing errors for you :)"; end
+
+E
+
+the rest is powershell mixed with SOFC like this:
+
+saval X = "bob"
+if (X = "bob") = 1; do, powershell -c "[Console]::Beep(200, 800)"; end. el, powershell -c "[Console]::Beep(800, 800)"; end
