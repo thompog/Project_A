@@ -13,3 +13,5 @@ if you have Python witch is 3.10 or higher then just run the Project_Å_GUI.py a
 Win -> type "CMD" -> run as admin -> cd /d into the folder witch has the files -> python Project_Å_GUI.py
 
 if you do not have python version 3.10 or higher then run python downloader.bat and if you want 100% run it as admin
+Unless if your wanting to use SOFC my home made programming language just download the lanagage.txt and SOFC.exe and run in console or CMD SOFC.exe -? or -H to knwo more!
+to see the lanagage itself just go in lanagage.txt
